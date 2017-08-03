@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+        <script>
+       document.documentElement.style.fontSize=innerWidth/16+"px";
+        </script>
+        <style>
+            *{
+                -webkit-box-sizing:border-box;
+            }
+            html,body{
+             margin: 0;   width: 100%;height: 100%;
+            }
+        .container{
+            width: 100%;height: 15rem;overflow: hidden;
+            background-color: #ccc;position: relative;
+        }
+        ul{
+            padding: 0;margin:0;list-style: none;width: 400%;height:15rem;position: absolute;position: relative;
+        }
+        ul li{
+            width: 25%;float:left;border:1px solid red;
+            height: 15rem;
+        }
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <ul id="list">
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+            <li>004</li>
+        </ul>
+    </div>
+    <script>
+        function getStyle(obj,attr){
+            return getComputedStyle(obj,null)[attr];
+         }
+         var list=document.getElementById("list");
+         var li=document.getElementsByTagName("li");
+         var w=parseInt(getStyle(li[0],"width"));
+         alert(w);
+         var left=0;
+         var n=0;
+         list.addEventListener("touchstart",function(ev){
+            ev.preventDefault();//阻止默认行为
+            var ex=ev.changedTouches[0].pageX;
+            left=this.offsetLeft;
+            console.log(left);
+               list.addEventListener("touchmove",function(ev){
+         var dis=ev.changedTouches[0].pageX-ex;
+         console.log(dis);
+         list.style.left=left+dis+"px";
+           
+           
+               })
+               list.addEventListener("touchend",function(ev){
+                n=Math.round(this.offsetLeft/w);
+                if (n>0) {
+            n=0};
+                console.log(n);
+                list.style.left=n*w+"px";
+               })
+         })
+    </script>
+    </body>
+        
+</html>
