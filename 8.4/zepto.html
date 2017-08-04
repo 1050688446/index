@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+        <script src="zepto.min.js"></script>
+        <style>
+       html,body{
+        width: 100%;height: 100%;margin: 0;padding: 0;
+       }
+       #lb{
+         width: 100%;height: 300px;
+         overflow: hidden;margin: 0;list-style: none;padding: 0;position: absolute;float: left;
+       }
+       li{
+        width: 100%;height: 300px;float: left;background-color:#333;
+        border:1px solid red;
+       }
+        </style>
+    </head>
+    <body>
+     <ul id="lb">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    <!-- <div id="aaa">abc</div>
+    <script>
+     ;(function($){
+       $("body").on("swipeLeft",function(){
+        $(this).html("holl");
+      })
+     })(Zepto)
+    </script> -->
+        <script>
+  ;(function($){
+    var lis=document.getElementsByTagName("li")
+    var uls=document.getElementById("lb")
+
+
+  })(Zepto)
+        </script>
+
+    </body>
+</html>
